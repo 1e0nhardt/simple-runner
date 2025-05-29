@@ -1,0 +1,136 @@
+{
+  "name": "simple-runner",
+  "displayName": "Simple Runner",
+  "description": "Provide up to 6 buttons to run custom terminal commands",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1e0nhardt/simple-runner.git"
+  },
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "simple-runner",
+      "properties": {
+        "simple-runner.commands": {
+          "type": "array",
+          "default": [
+            "echo \"Hello World! 0\"",
+            "echo \"Hello World! 1\"",
+            "echo \"Hello World! 2\"",
+            "echo \"Hello World! 3\"",
+            "echo \"Hello World! 4\"",
+            "echo \"Hello World! 5\""
+          ],
+          "description": "Custom Commands"
+        },
+        "simple-runner.activate_indices": {
+          "type": "array",
+          "default": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "description": "Activated Buttons"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "simple-runner.executeCommand0",
+        "title": "Build & Run",
+        "category": "Simple Runner",
+        "icon": "$(run-all)"
+      },
+      {
+        "command": "simple-runner.executeCommand1",
+        "title": "Run",
+        "category": "Simple Runner",
+        "icon": "$(play)"
+      },
+      {
+        "command": "simple-runner.executeCommand2",
+        "title": "Build",
+        "category": "Simple Runner",
+        "icon": "$(output)"
+      },
+      {
+        "command": "simple-runner.executeCommand3",
+        "title": "Debug",
+        "category": "Simple Runner",
+        "icon": "$(debug-alt)"
+      },
+      {
+        "command": "simple-runner.executeCommand4",
+        "title": "Custom Command 2",
+        "category": "Simple Runner",
+        "icon": "$(terminal)"
+      },
+      {
+        "command": "simple-runner.executeCommand5",
+        "title": "Custom Command 3",
+        "category": "Simple Runner",
+        "icon": "$(terminal)"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "simple-runner.executeCommand0",
+          "group": "navigation@-6",
+          "when": "simple-runner:showButton0"
+        },
+        {
+          "command": "simple-runner.executeCommand1",
+          "group": "navigation@-5",
+          "when": "simple-runner:showButton1"
+        },
+        {
+          "command": "simple-runner.executeCommand2",
+          "group": "navigation@-4",
+          "when": "simple-runner:showButton2"
+        },
+        {
+          "command": "simple-runner.executeCommand3",
+          "group": "navigation@-3",
+          "when": "simple-runner:showButton3"
+        },
+        {
+          "command": "simple-runner.executeCommand4",
+          "group": "navigation@-2",
+          "when": "simple-runner:showButton4"
+        },
+        {
+          "command": "simple-runner.executeCommand5",
+          "group": "navigation@-1",
+          "when": "simple-runner:showButton5"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.100.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "eslint": "^9.25.1",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
