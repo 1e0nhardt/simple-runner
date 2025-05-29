@@ -1,8 +1,9 @@
 {
-  "name": "simple-runner",
-  "displayName": "Simple Runner",
+  "name": "simple-cmd-runner",
+  "displayName": "Simple Cmd Runner",
   "description": "Provide up to 6 buttons to run custom terminal commands",
   "version": "0.0.1",
+  "publisher": "1e0nhardt",
   "repository": {
     "type": "git",
     "url": "https://github.com/1e0nhardt/simple-runner.git"
@@ -19,9 +20,9 @@
   "main": "./extension.js",
   "contributes": {
     "configuration": {
-      "title": "simple-runner",
+      "title": "simple-cmd-runner",
       "properties": {
-        "simple-runner.commands": {
+        "simple-cmd-runner.commands": {
           "type": "array",
           "default": [
             "echo \"Hello World! 0\"",
@@ -33,7 +34,7 @@
           ],
           "description": "Custom Commands"
         },
-        "simple-runner.activate_indices": {
+        "simple-cmd-runner.activate_indices": {
           "type": "array",
           "default": [
             true,
@@ -49,37 +50,37 @@
     },
     "commands": [
       {
-        "command": "simple-runner.executeCommand0",
+        "command": "simple-cmd-runner.executeCommand0",
         "title": "Build & Run",
         "category": "Simple Runner",
         "icon": "$(run-all)"
       },
       {
-        "command": "simple-runner.executeCommand1",
+        "command": "simple-cmd-runner.executeCommand1",
         "title": "Run",
         "category": "Simple Runner",
         "icon": "$(play)"
       },
       {
-        "command": "simple-runner.executeCommand2",
+        "command": "simple-cmd-runner.executeCommand2",
         "title": "Build",
         "category": "Simple Runner",
         "icon": "$(output)"
       },
       {
-        "command": "simple-runner.executeCommand3",
+        "command": "simple-cmd-runner.executeCommand3",
         "title": "Debug",
         "category": "Simple Runner",
         "icon": "$(debug-alt)"
       },
       {
-        "command": "simple-runner.executeCommand4",
+        "command": "simple-cmd-runner.executeCommand4",
         "title": "Custom Command 2",
         "category": "Simple Runner",
         "icon": "$(terminal)"
       },
       {
-        "command": "simple-runner.executeCommand5",
+        "command": "simple-cmd-runner.executeCommand5",
         "title": "Custom Command 3",
         "category": "Simple Runner",
         "icon": "$(terminal)"
@@ -88,34 +89,34 @@
     "menus": {
       "editor/title": [
         {
-          "command": "simple-runner.executeCommand0",
+          "command": "simple-cmd-runner.executeCommand0",
           "group": "navigation@-6",
-          "when": "simple-runner:showButton0"
+          "when": "simple-cmd-runner:showButton0"
         },
         {
-          "command": "simple-runner.executeCommand1",
+          "command": "simple-cmd-runner.executeCommand1",
           "group": "navigation@-5",
-          "when": "simple-runner:showButton1"
+          "when": "simple-cmd-runner:showButton1"
         },
         {
-          "command": "simple-runner.executeCommand2",
+          "command": "simple-cmd-runner.executeCommand2",
           "group": "navigation@-4",
-          "when": "simple-runner:showButton2"
+          "when": "simple-cmd-runner:showButton2"
         },
         {
-          "command": "simple-runner.executeCommand3",
+          "command": "simple-cmd-runner.executeCommand3",
           "group": "navigation@-3",
-          "when": "simple-runner:showButton3"
+          "when": "simple-cmd-runner:showButton3"
         },
         {
-          "command": "simple-runner.executeCommand4",
+          "command": "simple-cmd-runner.executeCommand4",
           "group": "navigation@-2",
-          "when": "simple-runner:showButton4"
+          "when": "simple-cmd-runner:showButton4"
         },
         {
-          "command": "simple-runner.executeCommand5",
+          "command": "simple-cmd-runner.executeCommand5",
           "group": "navigation@-1",
-          "when": "simple-runner:showButton5"
+          "when": "simple-cmd-runner:showButton5"
         }
       ]
     }

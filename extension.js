@@ -6,12 +6,12 @@ const CURRENT_MAX_BUTTONS = 6;
 
 // 定义按钮状态上下文
 const BUTTON_CONTEXTS = [
-	'simple-runner:showButton0',
-	'simple-runner:showButton1',
-	'simple-runner:showButton2',
-	'simple-runner:showButton3',
-	'simple-runner:showButton4',
-	'simple-runner:showButton5',
+	'simple-cmd-runner:showButton0',
+	'simple-cmd-runner:showButton1',
+	'simple-cmd-runner:showButton2',
+	'simple-cmd-runner:showButton3',
+	'simple-cmd-runner:showButton4',
+	'simple-cmd-runner:showButton5',
 ];
 
 // This method is called when your extension is activated
@@ -37,7 +37,7 @@ function activate(context) {
 	 * @param {number} index
 	 */
 	function register_custom_command(cmds, index) {
-		return vscode.commands.registerCommand('simple-runner.executeCommand' + index, async () => {
+		return vscode.commands.registerCommand('simple-cmd-runner.executeCommand' + index, async () => {
 			// 获取活动终端或创建新终端
 			const terminal = vscode.window.activeTerminal || vscode.window.createTerminal();
 			terminal.show();
@@ -50,7 +50,7 @@ function activate(context) {
 
 	function load_configuration() {
 		// 获取整个配置对象
-		const config = vscode.workspace.getConfiguration('simple-runner');
+		const config = vscode.workspace.getConfiguration('simple-cmd-runner');
 
 		const cmds = config.get('commands').slice(0, CURRENT_MAX_BUTTONS);
 		resize(cmds, CURRENT_MAX_BUTTONS, 'echo "No Command"');
@@ -83,7 +83,7 @@ function activate(context) {
 
 	// 监听配置变化
 	const configDisposable = vscode.workspace.onDidChangeConfiguration(e => {
-		if (e.affectsConfiguration('simple-runner.commands') || e.affectsConfiguration('simple-runner.activate_indices')) {
+		if (e.affectsConfiguration('simple-cmd-runner.commands') || e.affectsConfiguration('simple-cmd-runner.activate_indices')) {
 			load_configuration();
 		}
 	});
